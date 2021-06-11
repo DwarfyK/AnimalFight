@@ -1,0 +1,43 @@
+class Dyr{
+  PImage animalImage;
+  float posX;
+  float posY;
+  float velocityX;
+  float velocityY;
+  
+  void Display(){
+    if (animalImage != null)
+    imageMode(CENTER);
+      image(animalImage, posX, posY);
+  }
+  
+  void Move(){
+    posX = posX + velocityX;
+    posY = posY + velocityY;
+    
+    if(posX > width){
+      velocityX = -4;
+    }
+    
+    if(posX < 0){
+      velocityX = 4;
+    }
+    
+    if(posY > height){
+      velocityY = -1;
+    }
+    
+    if(posY < 0){
+      velocityY = 1;
+    }
+    }
+
+    void CheckForIce(ArrayList<Frozen> frozenListe){
+        for(Frozen currentFrozen : frozenListe){
+            if ( currentFrozen.CheckForCollision(posX, posY, image.width, image.height) ){
+                return true;
+            }
+            }
+            }
+        }
+    

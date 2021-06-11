@@ -1,0 +1,32 @@
+class Frozen{
+  PImage IceImage;
+  float posX;
+  float posY;
+
+    public bool CheckForCollision(float inPosX, float inPosY, float inWidth, float inHeight){
+
+        float myHeight = image.height;
+        float myWidth = image.width;
+
+        // is the right hand corner of x1 further to the right than the left hand corner of x2
+        if(inPosX + inWidth > posX && inPosX < posX + myWidth    &&    inPosY + inHeight > posY && inPosY < posY + myHeight){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    void Display(){
+    if (IceImage != null)
+    imageMode(CENTER);
+      image(IceImage, posX, posY);
+    }
+    Frozen(float startPosX, float startPosY){
+    IceImage = loadImage("IceInvis.png");
+    IceImage.resize(IceImage.width/2, IceImage.height/2);
+    posX = startPosX;
+    posY = startPosY;
+  }
+}
